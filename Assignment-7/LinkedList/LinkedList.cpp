@@ -95,7 +95,7 @@ void reverseLL()
         printf("Reversed linked list is: ");
         while(temp != NULL)
         {
-            printf("%d", temp->data);
+            printf("%d ", temp->data);
             temp = temp->next;
         }
         printf("\n");
