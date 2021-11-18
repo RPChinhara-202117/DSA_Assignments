@@ -12,43 +12,45 @@ public:
         this->data = data;
         left = right = NULL;
     }
+
+    // Printing a Binary Tree according to PostOrder Traversal
+
+    void PostOrder(Node *node)
+    {
+        if(node == NULL)
+            return;
+    
+        PostOrder(node->left);
+        PostOrder(node->right);
+        cout<<node->data<<" ";
+    }
+
+    // Printing a Binary Tree according to InOrder Traversal
+
+    void InOrder(Node *node)
+    {
+        if(node == NULL)
+            return;
+    
+        InOrder(node->left);
+        cout<<node->data<<" ";
+        InOrder(node->right);
+    }
+
+    // Printing a Binary Tree according to PreOrder Traversal
+
+    void PreOrder(Node *node)
+    {
+        if(node == NULL)
+            return;
+
+        cout<<node->data<<" ";
+        PreOrder(node->left);
+        PreOrder(node->right);
+    }
 };
 
-// Printing a Binary Tree according to PostOrder Traversal
 
-void PostOrder(Node *node)
-{
-    if(node == NULL)
-        return;
-    
-    PostOrder(node->left);
-    PostOrder(node->right);
-    cout<<node->data<<" ";
-}
-
-// Printing a Binary Tree according to InOrder Traversal
-
-void InOrder(Node *node)
-{
-    if(node == NULL)
-        return;
-    
-    InOrder(node->left);
-    cout<<node->data<<" ";
-    InOrder(node->right);
-}
-
-// Printing a Binary Tree according to PreOrder Traversal
-
-void PreOrder(Node *node)
-{
-    if(node == NULL)
-        return;
-
-    cout<<node->data<<" ";
-    PreOrder(node->left);
-    PreOrder(node->right);
-}
 
 int main()
 {
@@ -59,13 +61,13 @@ int main()
     root->left->right = new Node(5);
 
     cout<<"\nPreOrder Traversal of Binary Tree is \n";
-    PreOrder(root);
+    (*root).PreOrder(root);
 
     cout<<"\nInOrder Traversal of Binary Tree is \n";
-    InOrder(root);
+    (*root).InOrder(root);
 
     cout<<"\nPostOrder Traversal of Binary Tree is \n";
-    PostOrder(root);
+    (*root).PostOrder(root);
 
     cout<<endl;
 
